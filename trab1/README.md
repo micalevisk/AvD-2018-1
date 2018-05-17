@@ -11,3 +11,25 @@
 4. Número médio de reencontros
 5. Tempo médio entre reencontros
 
+
+### Sobre a base:
+
+`SocialPromixity.dat`
+- Timestamp
+- Encounter Duration
+- Average Encounter Duration
+- Social Strength (per hour)
+- Social Strength (per minute) towards <DeviceName>
+
+`DistanceOutput.dat`
+- Timestamp
+- DeviceName
+- Distance
+
+`Microphone.dat`
+- Timestamp
+- SoundLevel {QUIET, NORMAL, ALERT or NOISY}
+
+`PhysicalActivity.dat`
+- Timestamp
+- Activity {STATIONARY, WALKING or RUNNING}
