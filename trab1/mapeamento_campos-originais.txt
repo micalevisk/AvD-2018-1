@@ -1,0 +1,49 @@
+######################################### SocialStrength.dat #########################################
+18/11-16:02:08.008  Pedro    Silva                     0   0   0               0
+18/11-16:02:08.008  Lenovo  K3  Note                   0   0   11.0426824697   11.0426824697
+18/11-16:02:08.008  Daniela  Monteiro  (Galaxy  S5)    0   0   0               0
+18/11-16:02:08.008  BlackBerry  9360                   0   0   0               0
+18/11-16:02:08.008  Jose  Alves  (Galaxy  S4)          0   0   0               0
+------------------  -------------------------------    -   -   -               -
+        |                        |                     |   |   |               |
+        |                        |                     |   |   |               +--- (?) Average Encounter Duration
+        |                        |                     |   |   +--- (?) Encounter Duration
+        |                        |                     |   +--- (?) Social Strength (per hour)
+        |                        |                     +--- (?) Social Strength
+        |                        +--- DeviceName
+        +--- Timestamp
+
+
+
+####### Distance.dat #######
+18/11-14:37:54.054  Usense5   3.281108812
+18/11-14:38:54.054  Usense5   3.281108812
+18/11-14:39:54.054  Usense5   3.281108812
+18/11-14:54:57.057  Usense5   -1
+------------------  -------   -----------
+        |              |           |
+        |              |           +--- Distance
+        |              +--- DeviceName
+        +--- Timestamp
+
+
+
+########### Microphone.dat ###########
+18/11-16:20:16.016  ALERT
+18/11-16:20:19.019  ALERT
+18/11-16:20:22.022  NORMAL
+18/11-16:20:25.025  QUIET
+------------------  -----
+        |             |
+        |             +--- SoundLevel
+        +--- Timestamp
+
+
+
+########### PhysicalActivity.dat ###########
+16/11-18:29:19.019   WALKING
+16/11-18:29:30.030   WALKING
+------------------   -------
+        |               |
+        |               +--- Activity
+        +--- Timestamp
