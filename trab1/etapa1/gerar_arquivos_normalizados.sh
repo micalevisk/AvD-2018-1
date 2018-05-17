@@ -19,7 +19,7 @@ do
   arquivoNormalizado="${novoDir}${arquivoOriginal/%dat/csv}"
 
   mkdir -p "$novoDir"
-  sed -r 's/^\s*// ; s/\s+\t/\t/ ; s/\t\s/\t/' "$i" | tr '\t' ';' > "$arquivoNormalizado"
+  sed -r 's/^\s*// ; s/\s+\t/\t/ ; s/\t\s/\t/ ; s/  -  /-/' "$i" | tr '\t' ';' > "$arquivoNormalizado"
   echo "Criado: '$arquivoNormalizado'"
 done
 
