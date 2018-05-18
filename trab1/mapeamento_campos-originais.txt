@@ -6,10 +6,10 @@
 18/11-16:02:08.008  Jose  Alves  (Galaxy  S4)          0   0   0               0
 ------------------  -------------------------------    -   -   -               -
         |                        |                     |   |   |               |
-        |                        |                     |   |   |               +--- (?) Average Encounter Duration
-        |                        |                     |   |   +--- (?) Encounter Duration
-        |                        |                     |   +--- (?) Social Strength (per hour)
-        |                        |                     +--- (?) Social Strength
+        |                        |                     |   |   |               +--- Social Strength (per minute)
+        |                        |                     |   |   +--- Social Strength (per hour)
+        |                        |                     |   +--- Average Encounter Duration
+        |                        |                     +--- Encounter Duration
         |                        +--- DeviceName
         +--- Timestamp
 
