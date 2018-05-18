@@ -32,6 +32,8 @@ do
   cut -d ';' -f-6 1> "$tmpFile" && echo "Criado arquivo temporário: '$tmpFile'"
 
   arquivosCriados+=( "$tmpFile" )
+  rm -f "$f"
+  echo -e "Arquivo '$f' removido"
 
   [[ $i -eq $QTD_USENSES ]] && {
     i=1
