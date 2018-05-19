@@ -66,7 +66,7 @@ do
     sort -o "$arquivosMesclados" -t'/' -k2M -k1n "$arquivosMesclados"
 
     ## converter timestamp para tempos em segundos
-    gawk -i inplace -F $SEP 'BEGIN {t=0} { if (!a[$1]){ t+=60; a[$1]=1 }; $1=""; print t $0 }' OFS=$SEP "$arquivosMesclados"
+    gawk -i inplace -F $SEP 'BEGIN {t=-60} { if (!a[$1]){ t+=60; a[$1]=1 }; $1=""; print t $0 }' OFS=$SEP "$arquivosMesclados"
 
     ## remover linhas onde o campo `DeviceName` não é um dos IDs e o `Encounter Duration` é diferente de 0
     gawk -i inplace -F $SEP '$4~/^[0-4]$/ && $5 != "0"' "$arquivosMesclados"
