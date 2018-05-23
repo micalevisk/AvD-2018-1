@@ -40,7 +40,7 @@ arquivosCriados=() ## array de caminhos para os arquivos gerados
 
 for f in Experiment-[0-9]/USense[2-5]/SocialStrengthNormalizado.csv
 do
-  [[ -r "$f" ]] || exit ${1?'arquivo ausente ou sem permissão para leitura'}
+  [[ -r "$f" ]] || exit ${1?'arquivo .csv ausente ou sem permissão para leitura'}
 
   tmpFile="${f}~"
   currExperimentPath="${f%%/*}"
