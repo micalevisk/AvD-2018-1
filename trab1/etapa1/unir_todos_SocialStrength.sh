@@ -47,7 +47,7 @@ do
   currUSenseNumber="${f#*/}"
   currUSenseNumber="${currUSenseNumber%%/*}"
   currUSenseNumber="${currUSenseNumber:$(( ${#currUSenseNumber}-1 )):1}"
-  currUSenseNumber=$(( currUSenseNumber - $DECREMENTO )) # transformando em ID
+  currUSenseNumber=$(( currUSenseNumber - DECREMENTO )) # transformando em ID
 
   sed -r "s/[^;]+/\0;CONN;${currUSenseNumber}/" "$f" | ## inserir os 2 campos faltantes, `action` e `first_node_ID`
   awk -F $SEP -v d=$DECREMENTO '$4~/Usense[2-5]/ { $4=substr($4,7); $4-=d }1' OFS=$SEP > "$tmpFile" ## transformar os DeviceName dos segundos nós em ID
