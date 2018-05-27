@@ -10,6 +10,7 @@
 # mas os demais campos já seguem o formato desejado.
 #
 
+import sys
 import csv
 from datetime import datetime, timedelta
 fmt_timestamp = '%d/%m-%H:%M:%S.%f'
@@ -68,21 +69,28 @@ def operar_sobre_linha(timestamp, action, a, b, d):
     ultimo_timestamp[rel] = timestamp
 
 
-with open('SocialsStrength.csv', 'r', newline='') as csvinfile:
-    reader = csv.DictReader(csvinfile, delimiter=';')
-    for row in reader:
-        operar_sobre_linha(row['timestamp'], row['action'], row['first_node_ID'], row['second_node_ID'], row['encounter_duration'])
-    csvinfile.close()
+if __name__ == '__main__':
+    if len(sys.argv) != 3:
+        print("USAR: <arquivo-entrada.csv> <arquivo-saida.tsv>")
+        sys.exit(1)
 
-# adicionar os 'down' que não foram captados
-for rel in ultimo_type:
-    if ultimo_type[rel] == 'up':
-        [a, b] = rel.split('_')
-        resultados.append([ ultimo_timestamp[rel], 'CONN', a, b, 'down' ])
+    print('Executando...')
+    with open(sys.argv[1], 'r', newline='') as csvinfile:
+        reader = csv.DictReader(csvinfile, delimiter=';')
+        for row in reader:
+            operar_sobre_linha(row['timestamp'], row['action'], row['first_node_ID'], row['second_node_ID'], row['encounter_duration'])
+        csvinfile.close()
 
-# salvar ordenado pelo timestamp num arquivo .tsv
-with open('base_final.tsv', 'w', newline='') as csvoutfile:
-    writer = csv.writer(csvoutfile, delimiter='\t')
-    resultados_ordenados = sorted(resultados, key=lambda linha: linha[0])
-    writer.writerows(resultados_ordenados)
-    csvoutfile.close()
+        # adicionar os 'down' que não foram captados
+        for rel in ultimo_type:
+            if ultimo_type[rel] == 'up':
+                [a, b] = rel.split('_')
+                resultados.append([ ultimo_timestamp[rel], 'CONN', a, b, 'down' ])
+
+        # salvar ordenado pelo timestamp num arquivo .tsv
+        with open(sys.argv[2], 'w', newline='') as csvoutfile:
+            writer = csv.writer(csvoutfile, delimiter='\t')
+            resultados_ordenados = sorted(resultados, key=lambda linha: linha[0])
+            writer.writerows(resultados_ordenados)
+            csvoutfile.close()
+            print('arquivo "' + sys.argv[2] + '" criado')
