@@ -25,7 +25,6 @@ resultados = []
 def relacao(a, b): return a + '_' + b
 
 def printar(*colunas):
-#     print( '\t'.join([*colunas]) )
     resultados.append([*colunas])
 
 def subTimestamp(t1, secs = '60'):
@@ -37,31 +36,31 @@ def operar_sobre_linha(timestamp, action, a, b, d):
 
     if rel not in T: # 1
         if d != '0': # 1.1
-            printar( subTimestamp(timestamp, d), action, a, b, 'upA' ) # 1.1.1
+            printar( subTimestamp(timestamp, d), action, a, b, 'up' ) # 1.1.1
             T[rel] = timestamp # 1.2
             ultimo_type[rel] = 'up'
 
     elif T[rel] == -1: # 2
         if d != D[rel]: # 2.1
             if d != '0': # 1.1
-                printar( subTimestamp(timestamp, d), action, a, b, 'upB' ) # 1.1.1
+                printar( subTimestamp(timestamp, d), action, a, b, 'up' ) # 1.1.1
                 T[rel] = timestamp # 1.2
                 ultimo_type[rel] = 'up'
 
     else: # 3
         if d == D[rel]: # 3.1
-            printar( T[rel], action, a, b, 'downA' ) # 3.1.1
+            printar( T[rel], action, a, b, 'down' ) # 3.1.1
             T[rel] = -1 # 3.1.2
             ultimo_type[rel] = 'down'
         elif d != '0': # 3.2
             if float(d) >= float(D[rel]): # 3.2.1
                 T[rel] = timestamp
             else: # 3.2.2
-                printar( T[rel], action, a, b, 'downB') # 3.2.1
-                printar( subTimestamp(timestamp, d), action, a, b, 'upC') # 3.2.2
+                printar( T[rel], action, a, b, 'down') # 3.2.1
+                printar( subTimestamp(timestamp, d), action, a, b, 'up') # 3.2.2
                 ultimo_type[rel] = 'up'
         else: # 3.3
-            printar( subTimestamp(timestamp), action, a, b, 'downC') # 3.3.1
+            printar( subTimestamp(timestamp), action, a, b, 'down') # 3.3.1
             T[rel] = -1 # 3.3.2
             ultimo_type[rel] = 'up'
 
@@ -94,3 +93,4 @@ if __name__ == '__main__':
             writer.writerows(resultados_ordenados)
             csvoutfile.close()
             print('arquivo "' + sys.argv[2] + '" criado')
+
