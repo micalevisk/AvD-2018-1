@@ -1,8 +1,8 @@
+#
 # 27-05-2018 (c) Micael Levi L. C.
 #
 # Deve ser executado no diretório "social-interaction"
-# de cada experimento.
-# E precisará do arquivo "SocialsStrength.csv"
+# E usará o arquivo "SocialsStrength.csv" (passado como argumento)
 #
 # Vai gerar um arquivo de nome "base_final.tsv" quase
 # no formatado requerido pelo professor.
